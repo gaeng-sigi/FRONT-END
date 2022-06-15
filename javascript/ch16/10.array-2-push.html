@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+        console.log(arr.toString());
+
+        arr.push(100); // 배열 뒤에 추가하기.
+        console.log(arr.toString());
+
+        arr.unshift(90); // 배열 제일 앞에 넣기.
+        console.log(arr.toString());
+
+        const result = arr.pop(); // 배열 제일 뒤에 값 빼기.
+        console.log(`result : ${result}`);
+        console.log(arr.toString());
+
+        const result2 = arr.shift(); // 배열 제일 앞에 값 빼기.
+        console.log(`result : ${result2}`);
+        console.log(arr.toString());
+    </script>
+</body>
+
+</html>

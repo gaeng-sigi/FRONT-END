@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* box-sizing 주는 이유: margin, padding 계산하기 편함. */
+        nav ul {
+            list-style: none;
+        }
+
+        nav>ul>li {
+            display: inline-block;
+            padding: 20px;
+            margin: 0px 20px;
+            border: 1px solid #222;
+            cursor: pointer;
+        }
+
+        /* display에서 none, inline, block, inline-block, flex, grid 많이 사용. */
+        /* inline은 margin,height 안됨. block은 됨. */
+        /* > 바로 아래 일때만 사용. 없을때는 전부다 사용. */
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <nav>
+            <ul>
+                <li>menu 1</li>
+                <li>menu 2</li>
+                <li>menu 3</li>
+                <li>menu 4</li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Web Programing</h1>
+    <p>공부할 주제를 기록해 보세요. ver 3.</p>
+    <div>
+        <input type="text" id="subject">
+        <input type="button" value="추가" onclick="newReg();">
+        <input type="number" id="delIdx" style="width: 30px;">
+        <input type="button" value="삭제" onclick="delSubject();">
+    </div>
+    <div id="itemlist"></div>
+
+    <script>
+        const input = document.querySelector('#subject');
+        const inputDelIdx = document.querySelector('#delIdx');
+        const list = document.querySelector('#itemlist');
+
+        input.addEventListener('keyup', function (e) {
+            if (e.keyCode === 13) {
+                newReg();
+            }
+        });
+
+        function newReg() {
+            const txt = input.value;
+            const add = document.createElement('div');
+
+            list.appendChild(add);
+            add.innerText = txt;
+            //add.append(txt);
+
+            input.value = '';
+        }
+
+        // 마지막꺼 삭제.
+        function delSubject() {
+            const delIdx = inputDelIdx.value;
+            console.log(list.children);
+
+            //list.removeChild(list.children[delIdx - 1]);
+            list.children[delIdx - 1].remove();
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        #container {
+            height: 100%;
+            padding: 10px;
+        }
+
+        .item {
+            display: inline-block;
+            margin-right: 10px;
+            border: 1px solid gray;
+            width: 100px;
+            height: 200px;
+        }
+
+        .item>div:nth-child(1) {
+            height: 70%;
+        }
+
+        .item .info {
+            height: 30%;
+            background-color: aliceblue;
+        }
+
+        .item .info div:first-child {
+            left: 5px;
+            top: 5px;
+        }
+
+        /* position 에는 static, relative, absolute, fixed가 있다.*/
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <div class="item">
+            <div>이미지</div>
+            <div class="info">
+                <div>내용</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>이미지</div>
+            <div class="info">
+                <div>내용</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

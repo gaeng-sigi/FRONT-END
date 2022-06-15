@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 500px;
+            height: 300px;
+        }
+
+        #main>img {
+            width: 100%;
+        }
+
+        #sub {
+            width: 500px;
+            height: 100px;
+            display: flex;
+        }
+
+        #sub>img {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="main">
+            <img src="https://cphoto.asiae.co.kr/listimglink/6/2019053110481156049_1559267292.png" id="item">
+        </div>
+    </div>
+    <div>
+        <div id="sub">
+            <img src="https://cphoto.asiae.co.kr/listimglink/6/2019053110481156049_1559267292.png">
+            <img
+                src="https://mblogthumb-phinf.pstatic.net/20140530_3/besttion_1401401162582521dW_JPEG/adidas-1024x501.jpg?type=w2">
+            <img src="https://blog.kakaocdn.net/dn/b5xA3V/btqxeJfSyoY/KEif9tOURXiRpKFnfRhIIK/img.jpg">
+        </div>
+    </div>
+    <script>
+        const mainImg = document.querySelector('#main > img');
+        const subImg = document.querySelectorAll('#sub > img');
+
+        subImg.forEach(item => {
+            item.onclick = function () {
+                // mainImg.src = item.src;
+                mainImg.setAttribute('src', item.getAttribute('src'));
+            };
+        })
+        /*
+        subImg.forEach(item => {
+        item.addEventListener('click', function() {
+        mainImg.src = item.src;    
+        });
+    })
+        */
+    </script>
+</body>
+
+</html>

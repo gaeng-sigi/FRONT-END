@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="prod-pic">
+        <button onclick="changPic();">이미지 바꾸기</button>
+        <img src="https://cphoto.asiae.co.kr/listimglink/6/2019053110481156049_1559267292.png" alt="나이키" id="nike"
+            width="300" height="200" onclick="displaySrc();">
+    </div>
+    <script>
+        const nike = document.querySelector('#nike');
+        function changPic() {
+            // 누구의 무엇은 어떤값으로..?
+            // nike.src = 'https://mblogthumb-phinf.pstatic.net/20140530_3/besttion_1401401162582521dW_JPEG/adidas-1024x501.jpg?type=w2';
+
+            nike.setAttribute('src', 'https://mblogthumb-phinf.pstatic.net/20140530_3/besttion_1401401162582521dW_JPEG/adidas-1024x501.jpg?type=w2');
+        }
+
+        function displaySrc() {
+            console.log('getAttr : ' + nike.getAttribute('src')); // 내가 img에 지정한 임의의 속성은 값을 .으로 가져올수 없기 때문에, getAttribute로 가져와야 한다.
+            console.log('.src : ' + nike.src);
+            console.log('.alt : ' + nike.alt);
+            console.log('.id : ' + nike.id);
+            console.log('.width : ' + nike.width);
+            console.log('.height : ' + nike.height);
+            console.log('.onclick : ' + nike.onclick);
+        }
+    </script>
+</body>
+
+</html>

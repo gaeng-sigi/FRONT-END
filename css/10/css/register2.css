@@ -1,0 +1,8 @@
+#signup label { display: inline-block; font-size: 13px; width: 110px;}
+ul { list-style-type: none; padding-left: 5px;}
+button { border-radius: 20px; padding: 5px 20px;  margin: auto; display: block;}
+input[required] { line-height: 15px; border: 1px solid red;}
+input[readonly] { border: none;}
+form { width: 500px;}
+ul > li:not(:last-child) { margin-top: 5px;}
+ul > li:not(:last-child) { margin-bottom: 5px;}

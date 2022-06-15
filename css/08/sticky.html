@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            height: 300px;
+            background-color: aqua;
+        }
+
+        section {
+            height: 2000px;
+            display: flex;
+        }
+
+        section div:first-child {
+            flex-grow: 1;
+            height: 2000px;
+            background-color: blue;
+        }
+
+        section div:not(:first-child) {
+            position: sticky;
+            top: 0;
+            width: 300px;
+        }
+
+        footer {
+            height: 300px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Header
+    </header>
+    <section>
+        <div>내용</div>
+        <div>사이드 메뉴</div>
+    </section>
+    <footer>
+        Footer
+    </footer>
+</body>
+
+</html>

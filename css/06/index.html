@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 태그 선택자, '.' 클래스 선택자, '#' 아이디 선택자 */
+        div {
+            font-weight: bold;
+        }
+
+        .cls1 {
+            color: blue !important;
+            /* 앞쪽에 있어도 !important 를 주면 앞에꺼 적용 */
+        }
+
+        .cls2 {
+            color: pink;
+        }
+
+        #id1 {
+            background-color: antiquewhite
+        }
+    </style>
+</head>
+
+<body>
+    <section>section</section>
+    <div>0000</div>
+    <div style="color: red;">0000</div>
+    <div style="color: red;" class="cls1">aaaa</div>
+    <div class="cls1" id="id1">bbbb</div>
+    <div class="cls1 cls2">cls1 cls2</div><!-- 뒤쪽에 적힌게 마지막으로 적용된다-->
+</body>
+
+</html>
