@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heading {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">자바스크립트</h1>
+    <p id="text">위 텍스트를 클릭해 보세요.</p>
+    <script>
+        var heading = document.querySelector("#heading");
+        heading.onclick = function () {
+            heading.style.color = 'red';
+        };
+        // 이벤트 ~ 했을 때 -> ~ 를 하겠다. = 이벤트 바인딩?
+        // click 이벤트, 클릭 했을 경우 ~를 하겠다.
+        // document 브라우저에서 생성 되는 객체? 앞에 window.(생략해도 된다.)
+        // 객체는 속성(명사)과 method(동사)로 이루어진다.
+        // 속성은 괄호가 없다. method는 ()소괄호가 있다. 모든 프로그래밍언어 동일.
+        // '=' 오른쪽 내용을 복사해서 왼쪽으로 준다. return 해준다?
+        // return 값이 없으면 void 함수, return 값이 있으면 비void 함수.
+        // void 함수는 = 이 없다. ~~~; 로 표현.
+        // this 객체화가 된 자기 자신.
+        // 변수 이름은 $, _ 달러와 언더바 사용 가능. 나머지 기호 X.
+        // console 검정색은 문자열(string), 파란색은 숫자열(number)
+    </script>
+</body>
+
+</html>

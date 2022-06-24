@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        1.  콜백지옥을 안 하기 위해 promise를 사용해야 한다.
+        2.  promise 객체 만들 때 보내는 콜백함수!,
+            resolve를 호출하면 then이 실행되고
+            reject를 호출하면 catch가 실행된다.
+        3.  2번 콜백에서 리턴 값을 resolve에 argument로 사용한 promise 객체가 리턴된다.
+        */
+
+
+        // 1번 콜백
+        const p1 = new Promise(function (resolve) {
+            resolve('안녕', 1, 2, 3); // resolve,reject는 파라미터 1개만 받는다.
+        });
+        // 2번 콜백
+        const p2 = p1.then(function (result) { // p2로 넘어간 것은 promise 객체 
+            console.log(`p1 : ${result}`); // .then 에서 new promise를 또 만든다. 
+            return result; // resolve('안녕')만 보낸다.
+        });
+
+        p2.then(function (result) {
+            console.log(`p2 : ${result}`);
+        });
+
+
+        // 'then, catch 쓰고 있으면 promise 객체다'!!!
+
+        /* 2번 콜백 한줄로~
+        p1.then(function (result) {
+            console.log(`p1 : ${result}`);
+            return result;
+        }).then(function (result) {
+            console.log(`p2 : ${result}`);
+        });
+        */
+
+
+    </script>
+</body>
+
+</html>
