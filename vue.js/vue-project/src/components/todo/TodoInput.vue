@@ -29,6 +29,8 @@ export default {
                 const value = this.newTodoItem.trim();
                 // localStorage.setItem(value, value); // localstorage에 값 추가.
                 this.$emit('childAddTodo', value) // $는 이벤트 발생.
+            } else {
+                this.$emit('alertModal')
             }
             this.newTodoItem = '';
         }

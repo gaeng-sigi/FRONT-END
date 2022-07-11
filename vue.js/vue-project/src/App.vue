@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput @childAddTodo="addTodo"></TodoInput>
+    <TodoInput @childAddTodo="addTodo" @alertModal="showModal"></TodoInput>
     <TodoList @childRemoveTodo="removeTodo" v-bind:propsItems="todoItems"></TodoList>
     <TodoFooter @clearTodo2="clearTodo3"></TodoFooter>
   </div>
+  <AlertModal @close="closeModal" :show="modalShow" header="알림창" body="내용을 입력해 주세요."></AlertModal>
 </template>
 
 <script>
@@ -12,35 +13,56 @@ import TodoHeader from './components/todo/TodoHeader.vue';
 import TodoInput from './components/todo/TodoInput.vue';
 import TodoList from './components/todo/TodoList.vue';
 import TodoFooter from './components/todo/TodoFooter.vue';
+import AlertModal from './components/common/AlertModal.vue';
 
 export default {
   name: 'App',
 
   data() {
     return {
-      todoItems: []
+      todoItems: [],
+      cnt: 0,
+      modalShow: false
     }
   },
 
   methods: {
     addTodo(todoItem) { // TodoInput $emit 이벤트 발생으로 value 값이 todoItem으로 온다?
       //localStorage.setItem(todoItem, todoItem); // setItem 추가.
-      this.todoItems.push(todoItem);
+      this.todoItems.push({
+        key: this.cnt++,
+        value: todoItem
+      });
     },
 
-    removeTodo(todoItem, index) {
+    removeTodo(key) {
       //localStorage.removeItem(todoItem); // removeItem 삭제.
-      this.todoItems.splice(index, 1);
+      //this.todoItems.splice(index, 1);
+      this.todoItems.forEach((item, idx) => {
+        if(item.key === key) {
+          this.todoItems.splice(idx, 1);
+        }
+      })
     },
 
     clearTodo3() {
       //localStorage.clear();
       this.todoItems.splice(0);
+      this.cnt = 0;
     },
 
     changeValue() {
       const json = JSON.stringify(this.todoItems);
       localStorage.setItem('todoItems', json);
+      localStorage.setItem('cnt', this.cnt);
+    },
+
+    showModal() {
+      this.modalShow = !this.modalShow;
+    },
+
+    closeModal() {
+      this.modalShow = !this.modalShow;
     }
   },
 
@@ -48,7 +70,8 @@ export default {
     TodoHeader,
     TodoInput,
     TodoList,
-    TodoFooter
+    TodoFooter,
+    AlertModal
   },
 
   watch: {
@@ -67,6 +90,8 @@ export default {
       todoItems.forEach(item => {
         this.todoItems.push(item);
       });
+      const cnt = localStorage.getItem("cnt");
+      this.cnt = cnt;
     }
     /* if(localStorage.length > 0) {
           for(let i=0; i<localStorage.length; i++) {
