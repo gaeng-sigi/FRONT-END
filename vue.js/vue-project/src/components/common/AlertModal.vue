@@ -1,5 +1,6 @@
 <script>
 export default {
+    name: "AlertModal",
     props: {
         show: Boolean,
         header: String,
@@ -11,8 +12,8 @@ export default {
 <template>
     <Transition name="modal">
         <div v-if="show" class="modal-mask">
-            <div class="modal-wrapper">
-                <div class="modal-container">
+            <div class="modal-wrapper" style="z-index:10;" @click="$emit('close')">
+                <div class="modal-container" @click.stop="">
                     <div class="modal-header">
                         <slot name="header">{{ header }}</slot>
                     </div>

@@ -4,7 +4,7 @@
     <TodoInput @childAddTodo="addTodo" @alertModal="showModal"></TodoInput>
     <TodoList @childRemoveTodo="removeTodo" v-bind:propsItems="todoItems"></TodoList>
     <TodoFooter @clearTodo2="clearTodo3"></TodoFooter>
-  </div>ㅞㅡ 겨ㅜ 
+  </div>
   <AlertModal @close="closeModal" :show="modalShow" header="알림창" body="내용을 입력해 주세요."></AlertModal>
 </template>
 
@@ -20,11 +20,9 @@ import DateUtils from './utils/DateUtils';
 
 export default {
   name: 'App',
-
   data() {
     return {
       todoItems: [],
-      cnt: 0,
       modalShow: false
     }
   },
@@ -46,13 +44,6 @@ export default {
           this.todoItems.push(item);
         }
       })
-      
-      /*
-      this.todoItems.push({
-        key: this.cnt++,
-        value: todoItem
-      });
-      */
     },
 
     removeTodo(key) {
@@ -70,14 +61,12 @@ export default {
 
     clearTodo3() {
       //localStorage.clear();
-      this.todoItems.splice(0);
-      this.cnt = 0;
-    },
-
-    changeValue() {
-      const json = JSON.stringify(this.todoItems);
-      localStorage.setItem('todoItems', json);
-      localStorage.setItem('cnt', this.cnt);
+      axios.delete(`/todo/index`)
+      .then(res => {
+        if(res.status === 200 && res.data.result) {
+          this.todoItems.splice(0);
+        }
+      });
     },
 
     showModal() {
@@ -96,25 +85,8 @@ export default {
     TodoFooter,
     AlertModal
   },
-  /*
-  watch: {
-    todoItems: {
-      deep: true, // 객체, 배열 deep 필요.(주소값 안 바뀌는)
-      handler() {
-        this.changeValue(); // 위에 methods 안 localstorage~~~ 주석 처리하고 이걸로 대체
-      }
-    }
-  },
-  */
-  created() { // 내가 하고 싶은 작업을 작성..?
-    /*
-    TodoDao.getList(list => {
-      list.forEach(item => {
-        this.todoItem.push(item);
-      })
-    })
-    */
 
+  created() { // 내가 하고 싶은 작업을 작성..?
     axios.get('/todo/index')
     .then(res => {
       if(res.status === 200 && res.data.length > 0) {
@@ -124,22 +96,6 @@ export default {
       }
       console.log(res);
     })
-    /*
-    const json = localStorage.getItem("todoItems");
-    if(json) {
-      const todoItems = JSON.parse(json);
-      todoItems.forEach(item => {
-        this.todoItems.push(item);
-      });
-      const cnt = localStorage.getItem("cnt");
-      this.cnt = cnt;
-    }
-    */
-    /* if(localStorage.length > 0) {
-          for(let i=0; i<localStorage.length; i++) {
-              this.todoItems.push(localStorage.key(i));
-          }
-      } */
   }
 }
 </script>
@@ -148,5 +104,11 @@ export default {
   body { text-align: center; background-color: #F6F6F8; }
   input { border-style: groove; width: 200px; }
   button { border-style: groove; }
+  .ctnt { font-size: 1rem; }
+  .d-flex { display: flex; }
+  .flex-col { flex-direction: column; }
+  .flex-row { flex-direction: row; }
+  .grow_1 { flex-grow: 1; }
   .shadow { box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03); }
+  .justify_content_evenly { justify-content: space-evenly; }
 </style>

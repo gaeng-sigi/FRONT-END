@@ -9,9 +9,21 @@
 
 <style scoped>
     input:focus { outline: none; }
-    .inputBox { background-color: white; height: 50px; line-height: 50px; border-radius: 5px; display: flex;}
-    .inputBox input { border-style: none; font-size: 0.9rem; flex-grow: 1; padding: 0 10px;}
-    .addContainer { background: linear-gradient(to right, #6478FB, #8763FB); width: 3rem; border-radius: 0 5px 5px 0;}
+    .inputBox { 
+        background-color: white; height: 50px; line-height: 50px;
+        border-radius: 5px;
+        display: flex;
+        padding-left: 5px;
+    }
+    .inputBox input { 
+        border-style: none; font-size: 0.9rem; 
+        flex-grow: 1; padding: 0 10px; 
+    }
+    .addContainer { 
+        background: linear-gradient(to right, #6478FB, #8763FB);
+        width: 3rem;
+        border-radius: 0 5px 5px 0;    
+    }
     .addContainer > .addBtn { color: white; }
 </style>
 
