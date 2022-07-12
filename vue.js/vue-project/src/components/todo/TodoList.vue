@@ -1,10 +1,10 @@
 <template>
     <section>
         <transition-group name="list" tag="ul">
-            <li :key="todoItem.key" v-for="todoItem in propsItems" class="shadow">
+            <li :key="todoItem.itodo" v-for="todoItem in propsItems" class="shadow">
                 <i class="checkBtn fas fa-check" aria-hidden="true"></i>
-                {{ todoItem.value }}
-                <span class="removeBtn" type="button" @click="removeTodo(todoItem.key)">
+                {{ todoItem.todo }}
+                <span class="removeBtn" type="button" @click="removeTodo(todoItem.itodo)">
                     <i class="far fa-trash-alt" aria-hidden="true"></i>
                 </span>
             </li> <!-- 반복문은 키 값 설정을 해줘야한다. -->
