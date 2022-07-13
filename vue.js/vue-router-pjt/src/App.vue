@@ -3,7 +3,10 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/intro">Intro</router-link> |
-    <router-link to="/datebindinglist">DBL</router-link>
+    <router-link to="/databindinglist">DBL</router-link> |
+    <router-link to="/rendering">Rendering</router-link> |
+    <router-link to="/eventclick">EventClick</router-link>
+
   </nav>
   <router-view/>
 </template>

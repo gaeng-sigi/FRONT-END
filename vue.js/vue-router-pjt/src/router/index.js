@@ -1,36 +1,51 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import IntroView from '../views/IntroView.vue'
-import DateBindingList from '../views/DateBindingList'
+import DataBindingList from '../views/DataBindingList.vue'
+import RenderingView from '../views/RenderingView.vue'
+import EventClick from '../views/EventClick.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    name: "home",
+    component: HomeView,
   },
 
   {
-    path: '/about',
-    name: 'about',
+    path: "/about",
+    name: "about",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
 
   {
-    path: '/intro',
-    name: 'intros',
-    component: IntroView
+    path: "/intro",
+    name: "intros",
+    component: IntroView,
   },
 
   {
-    path: '/datebindinglist',
-    name: 'datebindinglist',
-    component: DateBindingList
+    path: "/databindinglist",
+    name: "databindinglist",
+    component: DataBindingList,
+  },
+
+  {
+    path: "/rendering",
+    name: "rendering",
+    component: RenderingView,
+  },
+
+  {
+    path: "/eventclick",
+    name: "eventclick",
+    component: EventClick
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
