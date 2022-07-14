@@ -20,24 +20,27 @@ export default ({
 
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
 
-nav {
-  padding: 30px;
-}
+  nav {
+    padding: 30px;
+  }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  nav a {
+    font-weight: bold;
+    color: #2c3e50;
+  }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+  nav a.router-link-exact-active {
+    color: #42b983;
+  }
+
+  table { border: 1px solid rgb(70, 70, 70); border-collapse: collapse; margin-left: auto; margin-right: auto;}
+  td, th { border: 1px solid rgb(70, 70, 70); padding: 10px;}
 </style>

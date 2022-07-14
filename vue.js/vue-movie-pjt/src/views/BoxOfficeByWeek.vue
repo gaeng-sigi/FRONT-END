@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>BoxOfficeByDay</h1>
+        <h1>BoxOfficeByWeek</h1>
         <div>
             <input type="date" v-model="selectedDate">
             <button @click="search">검색</button>
@@ -32,8 +32,8 @@ export default {
         },
 
         async getData(targetDt) {
-            const data = await this.getBoxOfficeByDay(targetDt);
-            this.list = data.boxOfficeResult.dailyBoxOfficeList;
+            const data = await this.getBoxOfficeByWeek(targetDt);
+            this.list = data.boxOfficeResult.weeklyBoxOfficeList;
         },
 
         numberComma(num) {
