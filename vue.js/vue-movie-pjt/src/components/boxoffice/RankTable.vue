@@ -2,6 +2,7 @@
     <table>
         <thead>
             <tr>
+                <th>종류</th>
                 <th>순위</th>
                 <th>제목</th>
                 <th>개봉일</th>

@@ -1,5 +1,6 @@
 <template>
     <tr>
+        <td>{{ item.rankOldAndNew }}</td>
         <td>{{ item.rank }}</td>
         <td>{{ item.movieNm }}</td>
         <td>{{ item.openDt }}</td>
