@@ -26,18 +26,14 @@ export default {
     },
 
     methods: {
-        search() {
-            const targetDt = this.selectedDate.replaceAll('-', '');
-            this.getData(targetDt);
-        },
-
         async getData(targetDt) {
             const data = await this.getBoxOfficeByDay(targetDt);
             this.list = data.boxOfficeResult.dailyBoxOfficeList;
         },
 
-        numberComma(num) {
-            return String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        search() {
+            const targetDt = this.selectedDate.replaceAll('-', '');
+            this.getData(targetDt);
         }
     },
 

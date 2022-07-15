@@ -3,8 +3,8 @@
         <td>{{ item.rank }}</td>
         <td>{{ item.movieNm }}</td>
         <td>{{ item.openDt }}</td>
-        <td>{{ getAudiAcc }}</td>
-        <td>{{ getSalesAcc }}</td>
+        <td>{{ getAudiAcc }}명</td>
+        <td>{{ getSalesAcc }}원</td>
     </tr>
 </template>
 

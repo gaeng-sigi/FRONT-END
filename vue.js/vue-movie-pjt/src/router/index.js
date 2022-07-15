@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home';
 import BoxOfficeByDay from '../views/BoxOfficeByDay';
 import BoxOfficeByWeek from '../views/BoxOfficeByWeek';
+import BoxOffice from '../views/BoxOffice';
 
 const routes = [
   {
@@ -13,19 +14,25 @@ const routes = [
   {
     path: "/BoxOfficeByDay",
     name: "BoxOfficeByDay",
-    component: BoxOfficeByDay,
+    component: BoxOffice
   },
 
   {
     path: "/BoxOfficeByWeek",
     name: "BoxOfficeByWeek",
-    component: BoxOfficeByWeek,
+    component: BoxOffice
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+});
+
+router.beforeEach(async (to, from, next) => {
+  console.log('ddd');
+  
+  return next();
 })
 
 export default router

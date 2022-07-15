@@ -35,10 +35,6 @@ export default {
             const data = await this.getBoxOfficeByWeek(targetDt);
             this.list = data.boxOfficeResult.weeklyBoxOfficeList;
         },
-
-        numberComma(num) {
-            return String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
     },
 
     created() {

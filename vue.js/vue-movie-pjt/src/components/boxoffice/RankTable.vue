@@ -21,7 +21,7 @@ import RankRow from './RankRow.vue';
 export default {
     components: { RankRow },
 
-    props: { // item: Object 타입 정확하게 해주는것이 좋다. props(전달받는 곳.)
+    props: { // props(전달받는 곳.), item: Object
         list: Array
     }
 }
