@@ -82,7 +82,7 @@ export default {
         },
 
         async login(params) {
-            const data = await this.$api('/user/signup', params);
+            const data = await this.$post('/user/signup', params);
             params.iuser = data.result;
             this.$store.commit('user', params);
         },
@@ -91,8 +91,8 @@ export default {
             window.Kakao.Auth.logout(async res => {
                 console.log(res);
                 this.$store.commit("user", {});
-                this.$store.push("path", '/'); // 라우터 주소 이동. (option 사항)
-                await this.$api('/user/logout');
+                this.$router.push("path", '/'); // 라우터 주소 이동. (option 사항)
+                await this.$post('/user/logout');
             })
         }
     }

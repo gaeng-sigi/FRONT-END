@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import KakaoLogin from "../views/KakaoLogin";
 import ProductList from "../views/ProductList";
 import ProductDetail from "../views/ProductDetail";
 import ProductCreate from "../views/ProductCreate";
@@ -42,12 +41,6 @@ const routes = [
     path: "/image_insert",
     name: "ImageInsert",
     component: ImageInsert
-  },
-
-  {
-    path: "/kakaologin",
-    name: "kakaologin",
-    component: KakaoLogin,
   }
 ];
 
