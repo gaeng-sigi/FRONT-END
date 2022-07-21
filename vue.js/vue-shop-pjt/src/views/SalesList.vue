@@ -50,7 +50,10 @@
 export default {
     data() {
         return {
-            productList: []
+            productList: [],
+            cate1List: [],
+            cate2List: [],
+            cate3List: []
         }
     },
 
