@@ -101,11 +101,11 @@
         data() {
             return {
                 product: {
-                    product_name: '제품abc',
+                    product_name: '제품',
                     product_price: 10,
-                    delivery_price: 20,
-                    add_delivery_price: 30,
-                    tags: 'taggggg',
+                    delivery_price: 10,
+                    add_delivery_price: 10,
+                    tags: 'tag',
                     outbound_days: 4,
                     category_id: '1',
                     seller_id: 1

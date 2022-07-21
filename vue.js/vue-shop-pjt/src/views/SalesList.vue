@@ -11,7 +11,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th></th>
+                    <th>제품이미지</th>
                     <th>제품명</th>
                     <th>제품가격</th>
                     <th>배송비</th>
@@ -21,7 +21,9 @@
             </thead>
             <tbody>
                 <tr :key="product.id" v-for="(product, idx) in productList">
-                    <td></td>
+                    <td>
+                        <img v-if="product.path !== null" :src="`/static/img/${product.id}/1/${product.path}`" style="height:150px; width:auto;">
+                    </td>
                     <td>{{ product.product_name }}</td>
                     <td>{{ product.product_price }}</td>
                     <td>{{ product.delivery_price }}</td>
@@ -36,7 +38,7 @@
                         <router-link class="nav-link" :to="{ path: '/update', query: {product_id: product_id} }">
                             <button type="button" class="btn btn-warning me-1"><i class="fa-solid fa-pen-to-square"></i></button>
                         </router-link>
-                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <button type="button" class="btn btn-danger" @click="deleteProduct(product.id, idx)"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -65,6 +67,13 @@ export default {
         goToImageInsert(idx) {
             this.$store.commit('sallerSelectedProduct', this.productList[idx]);
             this.$router.push( {path: '/image_insert'} );
+        },
+
+        async deleteProduct(productId, idx) {
+            const res = await this.$delete(`api/deleteProduct/${productId}`, {});
+            if(res.result === 1) {
+                this.productList.splice(idx, 1);
+            }
         }
     }
 }
