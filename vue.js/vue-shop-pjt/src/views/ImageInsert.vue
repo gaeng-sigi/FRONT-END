@@ -70,17 +70,17 @@
                 <label class="col-md-3 col-form-label">제품설명 이미지</label>
                 <div class="col-md-9">
                     <div class="row">
-                        
                         <div class="col-lg-3 col-md-4 col-sm-2" :key="item.id" v-for="item in productImage.filter( c => c.type === 3 )">
                             <div class="position-relative">
                                 <img :src="`/static/img/${item.product_id}/${item.type}/${item.path}`" class="img-fluid">
-                                <div class="position-absolute top-0 end-0" style="cursor:pointer;" @click="deleteImage(item)">X</div> <!-- (item.id) 없을 경우 파라미터 못 보낸다. -->
+                                <div class="position-absolute top-0 end-0" style="cursor:pointer;" @click="deleteImage(item)">X</div> <!-- (item) 없을 경우 파라미터 못 보낸다. -->
+                                <!-- @click="메소드명()"  ()여부에 따라 ()는 호출(파라미터 보낼 수 있음), 없으면 바인딩 -->
                             </div>
                         </div>
-
                     </div>
 
                     <input type="file" class="form-control" accept="image/png, image/jpeg" @change="uploadFile($event.target.files, 3)">
+                    <!-- multiple 속성을 주면 여러개 올릴 수 있음 -->
                     <div class="alert alert-secondary" role="alert">
                         <ul>
                             <li>파일 사이즈 : 5Mb 이하</li>
