@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img { width: 500px; height: auto;}
+    </style>
+</head>
+<body>
+    <div id="imgList"></div>
+    <script>
+        let page = 1;
+        const divImgList = document.querySelector('#imgList');
+        function getList() {
+            fetch(`https://picsum.photos/v2/list?page=${page++}&limit=40`)
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                makeList(result);
+            });
+        }
+        function makeList(list) {
+            list.forEach(item => {
+                divImgList.appendChild(makeItem(item)); // append(문자열,객체 다 가능), appenChild(객체만 됨)
+            })
+        }
+
+        function makeItem(item) { // 이미지 태그
+            const img = document.createElement('img') // createElement 를 appendChild 에 넣을 수 있다.
+            img.src = item.download_url;
+            return img;
+        }
+        getList();
+    </script>
+</body>
+</html>
